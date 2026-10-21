@@ -1,5 +1,7 @@
 # Business
 
+Link: https://sulii01.github.io/Business/
+
 Web pro nabídku služeb: tvorba webových stránek, webhosting, správa serverů, sítě a IT podpora.
 
 Statický web (HTML, CSS, JS), bez sestavování. Stačí otevřít `index.html` v prohlížeči
