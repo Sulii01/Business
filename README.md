@@ -11,10 +11,10 @@ nebo zapnout GitHub Pages (Settings → Pages → Deploy from branch → `main` 
 
 ## Kontaktní formulář
 
-Poptávky se odesílají přes [FormSubmit.co](https://formsubmit.co) (zdarma, bez registrace)
-na `sulakhonza@gmail.com`. Nastavení je v `js/main.js` (`CONTACT_EMAIL`).
+Poptávky se odesílají přes [Web3Forms](https://web3forms.com) (zdarma, 250 zpráv měsíčně)
+na e-mail, ke kterému patří access key. Nastavení je v `js/main.js` (`WEB3FORMS_KEY`).
 
-- **Aktivace:** po prvním odeslání z webu přijde na e-mail žádost o potvrzení, je potřeba
-  kliknout na „Activate Form“. Teprve pak začnou poptávky chodit.
-- Ochrana proti spamu: skryté pole `_honey`.
-- Když služba selže, formulář záložně otevře e-mailového klienta (`mailto:`).
+- **Klíč:** na web3forms.com zadat e-mail, access key přijde do schránky. Klíč není tajný,
+  patří přímo do stránky.
+- Ochrana proti spamu: skryté pole `botcheck`.
+- Bez klíče, nebo když služba selže, formulář záložně otevře e-mailového klienta (`mailto:`).

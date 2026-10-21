@@ -218,14 +218,15 @@
   counters.forEach(c => countObserver.observe(c));
 
   /* ---------- Kontaktní formulář ---------- */
-  // Odesílá přes FormSubmit.co (zdarma, bez registrace). První odeslání pošle na CONTACT_EMAIL
-  // aktivační e-mail, po potvrzení chodí poptávky rovnou do schránky.
-  // Když služba selže, nabídne se záložně mailto:.
+  // Odesílá přes Web3Forms (zdarma, 250 zpráv měsíčně) na e-mail, ke kterému patří WEB3FORMS_KEY.
+  // Klíč není tajný, je určený pro použití přímo ve stránce. Získáte ho na https://web3forms.com.
+  // Bez klíče, nebo když služba selže, se nabídne záložně mailto:.
   const form = $('#contactForm');
   const status = $('#formStatus');
   const submitBtn = $('button[type="submit"]', form);
   const CONTACT_EMAIL = 'sulakhonza@gmail.com';
-  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+  const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+  const WEB3FORMS_KEY = ''; // doplnit access key z Web3Forms
 
   const setStatus = (text, type) => {
     status.textContent = text;
@@ -258,17 +259,19 @@
     setStatus('Odesílám…');
 
     try {
+      if (!WEB3FORMS_KEY) throw new Error('Chybí access key Web3Forms');
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          'Jméno': name,
+          access_key: WEB3FORMS_KEY,
+          subject,
+          from_name: 'Web Šulák IT',
+          name,
           email,
           'Zájem o': services.join(', ') || '—',
-          'Zpráva': message,
-          _subject: subject,
-          _template: 'table',
-          _honey: form.elements._honey.value,
+          message,
+          botcheck: form.elements.botcheck.checked,
         }),
       });
       const data = await res.json().catch(() => ({}));

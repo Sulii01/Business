@@ -52,7 +52,7 @@ Statický web (HTML + CSS + JS, bez build kroku), jeden soubor `index.html` a sl
   6. **O mně** s počítadly a odkazem na portfolio.
   7. **FAQ** (rozbalovací).
   8. **Kontakt:** formulář s výběrem služeb. Poptávky odesílá do Gmailu
-     přes FormSubmit.co (viz README), záložně `mailto:`. Kliknutí na balíček v ceníku
+     přes Web3Forms (viz README), záložně `mailto:`. Kliknutí na balíček v ceníku
      předvyplní formulář.
 - Funguje na mobilu a respektuje `prefers-reduced-motion`. Otestováno v Chromiu
   (Playwright): žádné chyby v konzoli ani vodorovné přetečení na 1440 px a 390 px.
@@ -82,6 +82,7 @@ Statický web (HTML + CSS + JS, bez build kroku), jeden soubor `index.html` a sl
 1. Ověřit, že je web v repozitáři Business, a zapnout GitHub Pages.
 2. Doladit texty, ceny a barvy podle připomínek uživatele.
 3. Vybrat název značky, upravit logo a titulek, případně koupit doménu.
-4. ~~Napojit formulář na odesílání~~ hotovo (FormSubmit.co). Po prvním odeslání potvrdit aktivační e-mail.
+4. Formulář je napojený na Web3Forms. Dokud v `js/main.js` chybí `WEB3FORMS_KEY`, funguje jen
+   záloha `mailto:`. (FormSubmit.co jsme opustili, v prostředí Claude byl navíc blokovaný.)
 5. Později: reference a ukázky prací, stránka hostingu s tarify, GDPR a obchodní
    podmínky, favicony a OG obrázek.
