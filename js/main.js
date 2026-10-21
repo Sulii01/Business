@@ -218,12 +218,22 @@
   counters.forEach(c => countObserver.observe(c));
 
   /* ---------- Kontaktní formulář ---------- */
-  // Bez backendu: složí e-mail a otevře poštovního klienta. Později lze napojit např. na Formspree.
+  // Odesílá přes FormSubmit.co (zdarma, bez registrace). První odeslání pošle na CONTACT_EMAIL
+  // aktivační e-mail, po potvrzení chodí poptávky rovnou do schránky.
+  // Když služba selže, nabídne se záložně mailto:.
   const form = $('#contactForm');
   const status = $('#formStatus');
+  const submitBtn = $('button[type="submit"]', form);
   const CONTACT_EMAIL = 'sulakhonza@gmail.com';
+  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
-  form.addEventListener('submit', e => {
+  const setStatus = (text, type) => {
+    status.textContent = text;
+    status.classList.toggle('is-error', type === 'error');
+    status.classList.toggle('is-success', type === 'success');
+  };
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     let firstInvalid = null;
     $$('.field', form).forEach(field => {
@@ -233,25 +243,48 @@
       if (!ok && !firstInvalid) firstInvalid = input;
     });
     if (firstInvalid) {
-      status.textContent = 'Vyplňte prosím všechna pole (e-mail ve správném tvaru).';
-      status.classList.add('is-error');
+      setStatus('Vyplňte prosím všechna pole (e-mail ve správném tvaru).', 'error');
       firstInvalid.focus();
       return;
     }
-    status.classList.remove('is-error');
 
     const services = $$('input[name="service"]:checked', form).map(cb => cb.value);
     const subject = `Poptávka z webu${services.length ? ': ' + services.join(', ') : ''}`;
-    const body = [
-      `Jméno: ${form.elements.name.value.trim()}`,
-      `E-mail: ${form.elements.email.value.trim()}`,
-      services.length ? `Zájem o: ${services.join(', ')}` : null,
-      '',
-      form.elements.message.value.trim(),
-    ].filter(line => line !== null).join('\n');
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const message = form.elements.message.value.trim();
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = 'Otevírám váš e-mailový klient… Pokud se nic nestalo, napište mi přímo na ' + CONTACT_EMAIL + '.';
+    submitBtn.disabled = true;
+    setStatus('Odesílám…');
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          'Jméno': name,
+          email,
+          'Zájem o': services.join(', ') || '—',
+          'Zpráva': message,
+          _subject: subject,
+          _template: 'table',
+          _honey: form.elements._honey.value,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
+
+      form.reset();
+      setStatus('Děkuji! Poptávka dorazila, ozvu se vám do 24 hodin.', 'success');
+    } catch (err) {
+      // Záloha: otevře poštovního klienta s předvyplněnou zprávou
+      const body = [`Jméno: ${name}`, `E-mail: ${email}`, services.length ? `Zájem o: ${services.join(', ')}` : null, '', message]
+        .filter(line => line !== null).join('\n');
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus(`Odeslání se nepovedlo, otevírám váš e-mailový klient. Případně napište přímo na ${CONTACT_EMAIL}.`, 'error');
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 
   $$('.field input, .field textarea', form).forEach(input =>

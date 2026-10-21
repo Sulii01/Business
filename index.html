@@ -383,6 +383,11 @@
             <label for="message">Zpráva</label>
             <textarea id="message" name="message" rows="4" required placeholder="Např. potřebuji nový web pro kavárnu…"></textarea>
           </div>
+          <!-- Past na spamboty: člověk pole nevidí, robot ho vyplní a FormSubmit zprávu zahodí -->
+          <div class="hp" aria-hidden="true">
+            <label for="_honey">Nevyplňujte</label>
+            <input id="_honey" name="_honey" type="text" tabindex="-1" autocomplete="off" />
+          </div>
           <button type="submit" class="btn btn-accent btn-block">Odeslat poptávku <span aria-hidden="true">→</span></button>
           <p class="form-status" id="formStatus" role="status"></p>
         </form>

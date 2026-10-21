@@ -51,8 +51,8 @@ Statický web (HTML + CSS + JS, bez build kroku), jeden soubor `index.html` a sl
      měsíčně, Správa serveru od 1 490 Kč měsíčně, IT podpora od 500 Kč/hod.
   6. **O mně** s počítadly a odkazem na portfolio.
   7. **FAQ** (rozbalovací).
-  8. **Kontakt:** formulář s výběrem služeb. Bez backendu, otevře e-mailového klienta
-     (`mailto:`), později lze napojit třeba na Formspree. Kliknutí na balíček v ceníku
+  8. **Kontakt:** formulář s výběrem služeb. Poptávky odesílá do Gmailu
+     přes FormSubmit.co (viz README), záložně `mailto:`. Kliknutí na balíček v ceníku
      předvyplní formulář.
 - Funguje na mobilu a respektuje `prefers-reduced-motion`. Otestováno v Chromiu
   (Playwright): žádné chyby v konzoli ani vodorovné přetečení na 1440 px a 390 px.
@@ -82,6 +82,6 @@ Statický web (HTML + CSS + JS, bez build kroku), jeden soubor `index.html` a sl
 1. Ověřit, že je web v repozitáři Business, a zapnout GitHub Pages.
 2. Doladit texty, ceny a barvy podle připomínek uživatele.
 3. Vybrat název značky, upravit logo a titulek, případně koupit doménu.
-4. Napojit kontaktní formulář na skutečné odesílání (Formspree a podobně).
+4. ~~Napojit formulář na odesílání~~ hotovo (FormSubmit.co). Po prvním odeslání potvrdit aktivační e-mail.
 5. Později: reference a ukázky prací, stránka hostingu s tarify, GDPR a obchodní
    podmínky, favicony a OG obrázek.
