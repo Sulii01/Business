@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="cs" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Šulák IT – Weby, hosting a správa serverů</title>
+  <meta name="description" content="Tvorba webových stránek, webhosting, správa serverů a sítí a IT podpora pro firmy i jednotlivce. Moravskoslezský kraj a vzdáleně po celé ČR." />
+  <meta property="og:title" content="Šulák IT – Weby, hosting a správa serverů" />
+  <meta property="og:description" content="Weby, servery, sítě a IT podpora pod jednou střechou." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230b0d12'/><rect x='8' y='9' width='16' height='5' rx='1.5' fill='%23c6f432'/><rect x='8' y='18' width='16' height='5' rx='1.5' fill='%23c6f432' opacity='.55'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Šulák IT – domů">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span class="brand-name">Šulák<b>IT</b></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Hlavní navigace">
+        <a href="#sluzby">Služby</a>
+        <a href="#postup">Jak pracuji</a>
+        <a href="#cenik">Ceník</a>
+        <a href="#o-mne">O mně</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt" class="btn btn-sm btn-accent">Nezávazná poptávka</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> Přijímám nové zakázky</p>
+          <h1>
+            Postarám se o váš
+            <span class="rotator" id="rotator" aria-live="polite">
+              <span class="rotator-word is-active">web</span>
+              <span class="rotator-word">server</span>
+              <span class="rotator-word">hosting</span>
+              <span class="rotator-word">síť</span>
+            </span>
+            <br />abyste vy nemuseli.
+          </h1>
+          <p class="hero-lead">
+            Weby, hosting, správa serverů a IT podpora od jednoho člověka, který to
+            dělá i v práci. Bez zbytečných řečí, s jasnou cenou a rychlou reakcí.
+          </p>
+          <div class="hero-cta">
+            <a href="#kontakt" class="btn btn-accent">Probrat projekt <span aria-hidden="true">→</span></a>
+            <a href="#sluzby" class="btn btn-ghost">Co umím</a>
+          </div>
+          <ul class="hero-facts">
+            <li><strong>Sítě ISP</strong><span>praxe správce sítě</span></li>
+            <li><strong>Helpdesk</strong><span>firemní IT podpora</span></li>
+            <li><strong>VŠB-TUO</strong><span>telekomunikace a ICT</span></li>
+          </ul>
+        </div>
+
+        <!-- Interaktivní „server panel“ -->
+        <div class="panel" id="panel" aria-label="Ukázkový panel monitoringu serveru">
+          <div class="panel-head">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="panel-title">monitor · web-01</span>
+            <span class="status-pill"><span class="dot"></span>online</span>
+          </div>
+          <div class="panel-body">
+            <div class="metric">
+              <span class="metric-label">Uptime</span>
+              <span class="metric-value" id="uptime">99,98 %</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Odezva</span>
+              <span class="metric-value"><span id="ping">18</span> ms</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">SSL</span>
+              <span class="metric-value ok">platný</span>
+            </div>
+            <div class="chart" aria-hidden="true">
+              <div class="chart-label">Zátěž CPU</div>
+              <div class="bars" id="bars"></div>
+            </div>
+            <pre class="log" id="log" aria-hidden="true"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee" aria-label="Technologie, se kterými pracuji">
+      <div class="marquee-track">
+        <span>Linux</span><span>Proxmox</span><span>VMware</span><span>Hyper-V</span><span>MikroTik</span><span>WordPress</span><span>HTML &amp; CSS</span><span>PHP</span><span>Python</span><span>Bash</span><span>Zabbix</span><span>Microsoft 365</span><span>Active Directory</span><span>GPON</span><span>Git</span>
+        <span aria-hidden="true">Linux</span><span aria-hidden="true">Proxmox</span><span aria-hidden="true">VMware</span><span aria-hidden="true">Hyper-V</span><span aria-hidden="true">MikroTik</span><span aria-hidden="true">WordPress</span><span aria-hidden="true">HTML &amp; CSS</span><span aria-hidden="true">PHP</span><span aria-hidden="true">Python</span><span aria-hidden="true">Bash</span><span aria-hidden="true">Zabbix</span><span aria-hidden="true">Microsoft 365</span><span aria-hidden="true">Active Directory</span><span aria-hidden="true">GPON</span><span aria-hidden="true">Git</span>
+      </div>
+    </div>
+
+    <!-- ===== SLUŽBY ===== -->
+    <section class="section" id="sluzby">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">01 — Služby</p>
+          <h2>Všechno, co váš projekt potřebuje, aby běžel.</h2>
+          <p class="section-lead">Od první stránky přes hosting až po server, který se o sebe nestará sám. Vyberte si jednu službu, nebo nechte celé IT na mně.</p>
+        </div>
+
+        <div class="services">
+          <article class="card service reveal" data-spotlight>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14l-2 2 2 2M16 14l2 2-2 2"/></svg>
+            </div>
+            <h3>Tvorba webových stránek</h3>
+            <p>Moderní, rychlé a responzivní weby. Prezentace firmy, osobní stránky, landing page nebo web na WordPressu, který si budete umět sami upravit.</p>
+            <ul class="ticks">
+              <li>Design na míru, mobil na prvním místě</li>
+              <li>WordPress nebo čisté HTML/CSS/JS</li>
+              <li>Základní SEO a analytika</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-spotlight>
+            <span class="badge">Připravuji</span>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-7.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/><path d="M12 12v6M9.5 14.5 12 12l2.5 2.5"/></svg>
+            </div>
+            <h3>Webhosting a domény</h3>
+            <p>Spolehlivý hosting pro váš web i e-maily. Zařídím doménu, SSL certifikát, zálohy a dohled, takže se nemusíte starat o nic technického.</p>
+            <ul class="ticks">
+              <li>SSL certifikát a denní zálohy</li>
+              <li>Registrace a správa domény</li>
+              <li>Přímý kontakt místo call centra</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-spotlight>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg>
+            </div>
+            <h3>Správa serverů</h3>
+            <p>Instalace, nastavení a dlouhodobá péče o servery. Linux, virtualizace i monitoring, aby všechno běželo a vy věděli o problému dřív než zákazníci.</p>
+            <ul class="ticks">
+              <li>Linux, Proxmox, VMware, Hyper-V</li>
+              <li>Aktualizace, zálohy, zabezpečení</li>
+              <li>Monitoring a upozornění (Zabbix)</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-spotlight>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg>
+            </div>
+            <h3>Sítě a Wi-Fi</h3>
+            <p>Návrh a nastavení sítě pro kancelář, provozovnu i dům. Zkušenosti ze správy sítě poskytovatele internetu, včetně optiky a bezdrátových spojů.</p>
+            <ul class="ticks">
+              <li>MikroTik, routery, VPN</li>
+              <li>Pokrytí Wi-Fi bez hluchých míst</li>
+              <li>Diagnostika výpadků a pomalé sítě</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-spotlight>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-2"/></svg>
+            </div>
+            <h3>IT podpora</h3>
+            <p>Pomoc s počítači, tiskárnami, e-mailem a Microsoft 365, na místě i vzdáleně. Pro malé firmy, které nepotřebují vlastního ajťáka na plný úvazek.</p>
+            <ul class="ticks">
+              <li>Windows, Microsoft 365, Outlook, Teams</li>
+              <li>Nastavení nových zařízení a účtů</li>
+              <li>Vzdálená pomoc obvykle do pár hodin</li>
+            </ul>
+          </article>
+
+          <article class="card service service-cta reveal">
+            <h3>Nevíte, co přesně potřebujete?</h3>
+            <p>Napište mi, co vás trápí. Do 24 hodin se ozvu s návrhem řešení a odhadem ceny, nezávazně.</p>
+            <a href="#kontakt" class="btn btn-dark">Napsat mi <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== POSTUP ===== -->
+    <section class="section section-dark" id="postup">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">02 — Jak pracuji</p>
+          <h2>Jednoduchý postup, žádná překvapení.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Konzultace</h3>
+            <p>Krátký hovor nebo schůzka. Zjistím, co potřebujete, a navrhnu řešení, které dává smysl i finančně.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <h3>Nabídka</h3>
+            <p>Dostanete jasnou cenu a termín. Co je v ceně, je napsané černé na bílém.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <h3>Realizace</h3>
+            <p>Pracuji průběžně a ukazuji výsledky. Připomínky zapracuji, než cokoliv spustíme.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">04</span>
+            <h3>Péče po spuštění</h3>
+            <p>Nekončím předáním. Aktualizace, zálohy a podpora, když něco potřebujete.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== CENÍK ===== -->
+    <section class="section" id="cenik">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">03 — Ceník</p>
+          <h2>Orientační ceny.</h2>
+          <p class="section-lead">Každý projekt je jiný, finální cenu vždy domluvíme předem. Tyto balíčky slouží jako výchozí bod.</p>
+        </div>
+
+        <div class="billing reveal" role="group" aria-label="Typ platby za správu">
+          <button class="billing-btn is-active" data-billing="monthly" aria-pressed="true">Měsíčně</button>
+          <button class="billing-btn" data-billing="yearly" aria-pressed="false">Ročně <em>−15 %</em></button>
+        </div>
+
+        <div class="pricing">
+          <article class="card price reveal">
+            <h3>Web Start</h3>
+            <p class="price-desc">Jednoduchá prezentace pro živnostníky a malé firmy.</p>
+            <p class="price-amount"><span class="from">od</span> 6 900 <span class="cur">Kč</span></p>
+            <p class="price-note">jednorázově</p>
+            <ul class="ticks">
+              <li>Až 5 podstránek</li>
+              <li>Responzivní design</li>
+              <li>Kontaktní formulář a mapa</li>
+              <li>Základní SEO</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline" data-package="Web Start">Chci web</a>
+          </article>
+
+          <article class="card price price-featured reveal">
+            <span class="badge badge-accent">Nejoblíbenější</span>
+            <h3>Web + péče</h3>
+            <p class="price-desc">Web, hosting, doména a pravidelná údržba v jednom.</p>
+            <p class="price-amount"><span class="from">od</span> <span data-price-monthly="490" data-price-yearly="4 990">490</span> <span class="cur">Kč</span></p>
+            <p class="price-note" data-note-monthly="měsíčně + tvorba webu" data-note-yearly="ročně + tvorba webu">měsíčně + tvorba webu</p>
+            <ul class="ticks">
+              <li>Hosting, doména a SSL</li>
+              <li>Aktualizace a zálohy</li>
+              <li>Drobné úpravy obsahu</li>
+              <li>Prioritní podpora</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-accent" data-package="Web + péče">Chci balíček</a>
+          </article>
+
+          <article class="card price reveal">
+            <h3>Správa serveru</h3>
+            <p class="price-desc">Dohled a údržba serveru nebo firemní infrastruktury.</p>
+            <p class="price-amount"><span class="from">od</span> <span data-price-monthly="1 490" data-price-yearly="15 190">1 490</span> <span class="cur">Kč</span></p>
+            <p class="price-note" data-note-monthly="měsíčně za server" data-note-yearly="ročně za server">měsíčně za server</p>
+            <ul class="ticks">
+              <li>Monitoring 24/7 s upozorněním</li>
+              <li>Bezpečnostní aktualizace</li>
+              <li>Zálohy a jejich testování</li>
+              <li>Měsíční report</li>
+            </ul>
+            <a href="#kontakt" class="btn btn-outline" data-package="Správa serveru">Chci správu</a>
+          </article>
+        </div>
+        <p class="pricing-foot reveal">IT podpora a jednorázové práce: <strong>od 500 Kč / hod</strong>.</p>
+      </div>
+    </section>
+
+    <!-- ===== O MNĚ ===== -->
+    <section class="section section-dark" id="o-mne">
+      <div class="container about">
+        <div class="about-copy reveal">
+          <p class="kicker">04 — Kdo za tím stojí</p>
+          <h2>Ahoj, jsem Jan.</h2>
+          <p>
+            Vystudoval jsem telekomunikační techniku na VŠB-TUO a teď tam pokračuji
+            v inženýrském studiu. Prakticky jsem se staral o síť poskytovatele internetu
+            (MikroTik, GPON, Zabbix) a dnes pracuji v IT podpoře velké firmy.
+          </p>
+          <p>
+            Weby, servery a sítě mě baví i mimo práci, a proto je nabízím
+            i vám. Výhoda? Máte jednoho člověka, který rozumí webu, serveru
+            i síti, a nemusíte nic přeposílat mezi třemi firmami.
+          </p>
+          <a href="https://sulii01.github.io/portfolio/" class="link-arrow" target="_blank" rel="noopener">Celé portfolio <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-plus">+</span><p>roky praxe v IT a sítích</p></div>
+          <div class="stat"><span class="stat-num" data-count="20">0</span><span class="stat-plus">+</span><p>technologií, se kterými pracuji</p></div>
+          <div class="stat"><span class="stat-num" data-count="24">0</span><span class="stat-plus">h</span><p>maximální doba odpovědi</p></div>
+          <div class="stat"><span class="stat-num" data-count="1">0</span><p>kontakt pro web, server i síť</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head reveal">
+          <p class="kicker">05 — Časté dotazy</p>
+          <h2>Na co se lidé ptají.</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>Jak dlouho trvá vytvoření webu?</summary>
+            <p>Jednoduchý web je obvykle hotový za 1–3 týdny. Záleží hlavně na tom, jak rychle máme pohromadě texty a fotky.</p>
+          </details>
+          <details>
+            <summary>Budu si moct web upravovat sám?</summary>
+            <p>Ano. Pokud chcete obsah měnit sami, postavím web na WordPressu a ukážu vám, jak na to. Případně úpravy rád udělám za vás.</p>
+          </details>
+          <details>
+            <summary>Pracujete jen v okolí, nebo i na dálku?</summary>
+            <p>Osobně působím v Moravskoslezském kraji (Třinecko, Karvinsko, Frýdecko-Místecko, Ostrava). Weby, hosting a správu serverů zvládnu vzdáleně odkudkoliv.</p>
+          </details>
+          <details>
+            <summary>Co když už web nebo server mám?</summary>
+            <p>Žádný problém. Převezmu správu stávajícího řešení, zkontroluji zabezpečení a zálohy a navrhnu, co by se vyplatilo zlepšit.</p>
+          </details>
+          <details>
+            <summary>Kdy spustíte vlastní hosting?</summary>
+            <p>Na hostingu aktuálně pracuji. Do té doby web umístím u ověřeného poskytovatele a vše vám zařídím, později jde přejít bez výpadku.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KONTAKT ===== -->
+    <section class="section contact-section" id="kontakt">
+      <div class="container contact">
+        <div class="contact-copy reveal">
+          <p class="kicker">06 — Kontakt</p>
+          <h2>Pojďme to rozjet.</h2>
+          <p>Popište mi v pár větách, co potřebujete. Ozvu se do 24 hodin s návrhem a odhadem ceny.</p>
+          <ul class="contact-list">
+            <li><span>E-mail</span><a href="mailto:sulakhonza@gmail.com">sulakhonza@gmail.com</a></li>
+            <li><span>Telefon</span><a href="tel:+420730809795">+420 730 809 795</a></li>
+            <li><span>Působnost</span>Moravskoslezský kraj · vzdáleně celá ČR</li>
+          </ul>
+        </div>
+
+        <form class="form card reveal" id="contactForm" novalidate>
+          <fieldset class="chips">
+            <legend>O co máte zájem?</legend>
+            <label><input type="checkbox" name="service" value="Web" /><span>Web</span></label>
+            <label><input type="checkbox" name="service" value="Hosting" /><span>Hosting</span></label>
+            <label><input type="checkbox" name="service" value="Správa serveru" /><span>Server</span></label>
+            <label><input type="checkbox" name="service" value="Síť" /><span>Síť</span></label>
+            <label><input type="checkbox" name="service" value="IT podpora" /><span>IT podpora</span></label>
+          </fieldset>
+          <div class="field">
+            <label for="name">Jméno</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="message">Zpráva</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Např. potřebuji nový web pro kavárnu…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent btn-block">Odeslat poptávku <span aria-hidden="true">→</span></button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#top" class="brand brand-small">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span class="brand-name">Šulák<b>IT</b></span>
+      </a>
+      <p>© <span id="year">2026</span> Jan Šulák · Weby, hosting, servery a IT podpora</p>
+      <a href="#top" class="to-top" aria-label="Zpět nahoru">↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
