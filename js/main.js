@@ -226,7 +226,7 @@
   const submitBtn = $('button[type="submit"]', form);
   const CONTACT_EMAIL = 'sulakhonza@gmail.com';
   const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
-  const WEB3FORMS_KEY = ''; // doplnit access key z Web3Forms
+  const WEB3FORMS_KEY = 'dc03163a-23cb-44e9-841c-ccfff524bbf8';
 
   const setStatus = (text, type) => {
     status.textContent = text;

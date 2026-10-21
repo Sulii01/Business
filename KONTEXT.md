@@ -82,7 +82,7 @@ Statický web (HTML + CSS + JS, bez build kroku), jeden soubor `index.html` a sl
 1. Ověřit, že je web v repozitáři Business, a zapnout GitHub Pages.
 2. Doladit texty, ceny a barvy podle připomínek uživatele.
 3. Vybrat název značky, upravit logo a titulek, případně koupit doménu.
-4. Formulář je napojený na Web3Forms. Dokud v `js/main.js` chybí `WEB3FORMS_KEY`, funguje jen
-   záloha `mailto:`. (FormSubmit.co jsme opustili, v prostředí Claude byl navíc blokovaný.)
+4. Formulář je napojený na Web3Forms, access key je v `js/main.js` (`WEB3FORMS_KEY`).
+   Ověřit zkušební poptávkou na živém webu. (FormSubmit.co jsme opustili.)
 5. Později: reference a ukázky prací, stránka hostingu s tarify, GDPR a obchodní
    podmínky, favicony a OG obrázek.
